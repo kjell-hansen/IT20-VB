@@ -4,6 +4,5 @@ Detta är ett förvar för mina VisualBasic.net projekt för IT20:s Visual Basic
 
 ## Projekten som ingår
 
-
 Varje projekt ligger i en egen förgrening.
-P1_HelloWorld - Första projektet en enkel Hello World variant
+* P1_HelloWorld - Första projektet, en enkel Hello World variant
