@@ -6,3 +6,4 @@ Detta är ett förvar för mina VisualBasic.net projekt för IT20:s Visual Basic
 
 Varje projekt ligger i en egen förgrening.
 * P1_HelloWorld - Första projektet, en enkel Hello World variant
+* P2_GissaTalet - Enkel gissa vilket tal jag tänker på med lite förbättringar
