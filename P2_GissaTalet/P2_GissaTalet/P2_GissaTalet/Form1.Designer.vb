@@ -26,6 +26,8 @@ Partial Class Form1
         Me.txtGissning = New System.Windows.Forms.TextBox()
         Me.btnGissa = New System.Windows.Forms.Button()
         Me.lblAntalGissningar = New System.Windows.Forms.Label()
+        Me.btnGeUpp = New System.Windows.Forms.Button()
+        Me.btnBorjaOm = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -35,10 +37,11 @@ Partial Class Form1
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(99, 20)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "DIn gissning..."
+        Me.Label1.Text = "Din gissning..."
         '
         'txtGissning
         '
+        Me.txtGissning.AcceptsReturn = True
         Me.txtGissning.Location = New System.Drawing.Point(161, 33)
         Me.txtGissning.Name = "txtGissning"
         Me.txtGissning.Size = New System.Drawing.Size(88, 27)
@@ -58,15 +61,36 @@ Partial Class Form1
         Me.lblAntalGissningar.AutoSize = True
         Me.lblAntalGissningar.Location = New System.Drawing.Point(312, 33)
         Me.lblAntalGissningar.Name = "lblAntalGissningar"
-        Me.lblAntalGissningar.Size = New System.Drawing.Size(159, 20)
+        Me.lblAntalGissningar.Size = New System.Drawing.Size(302, 20)
         Me.lblAntalGissningar.TabIndex = 3
-        Me.lblAntalGissningar.Text = "Du har gissat ... gånger"
+        Me.lblAntalGissningar.Text = "Det gäller att gissa ett tal mellan 1 och 1000"
+        '
+        'btnGeUpp
+        '
+        Me.btnGeUpp.Location = New System.Drawing.Point(157, 131)
+        Me.btnGeUpp.Name = "btnGeUpp"
+        Me.btnGeUpp.Size = New System.Drawing.Size(114, 36)
+        Me.btnGeUpp.TabIndex = 4
+        Me.btnGeUpp.Text = "Jag ger upp!"
+        Me.btnGeUpp.UseVisualStyleBackColor = True
+        '
+        'btnBorjaOm
+        '
+        Me.btnBorjaOm.Location = New System.Drawing.Point(157, 197)
+        Me.btnBorjaOm.Name = "btnBorjaOm"
+        Me.btnBorjaOm.Size = New System.Drawing.Size(117, 42)
+        Me.btnBorjaOm.TabIndex = 5
+        Me.btnBorjaOm.Text = "Börja om"
+        Me.btnBorjaOm.UseVisualStyleBackColor = True
         '
         'Form1
         '
+        Me.AcceptButton = Me.btnGissa
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnBorjaOm)
+        Me.Controls.Add(Me.btnGeUpp)
         Me.Controls.Add(Me.lblAntalGissningar)
         Me.Controls.Add(Me.btnGissa)
         Me.Controls.Add(Me.txtGissning)
@@ -82,4 +106,6 @@ Partial Class Form1
     Friend WithEvents txtGissning As TextBox
     Friend WithEvents btnGissa As Button
     Friend WithEvents lblAntalGissningar As Label
+    Friend WithEvents btnGeUpp As Button
+    Friend WithEvents btnBorjaOm As Button
 End Class
