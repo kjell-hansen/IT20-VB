@@ -13,8 +13,8 @@
         If e.KeyChar = "." AndAlso InStr(sender.Text, ".") > 0 Then
             e.Handled = True
         End If
-        ' Tillåt bara siffror och punkt
-        If (e.KeyChar < "0"c OrElse e.KeyChar > "9"c) AndAlso e.KeyChar <> "."c AndAlso e.KeyChar <> vbBack AndAlso e.KeyChar = "-"c Then
+        ' Tillåt bara siffror, punkt Backspace och minustecken
+        If (e.KeyChar < "0"c OrElse e.KeyChar > "9"c) AndAlso e.KeyChar <> "."c AndAlso e.KeyChar <> vbBack AndAlso e.KeyChar <> "-"c Then
             e.Handled = True
         End If
     End Sub
@@ -28,9 +28,17 @@
             Case "*"
                 lblResult.Text = Val(txtTal1.Text) * Val(txtTal2.Text)
             Case "/"
-                lblResult.Text = Val(txtTal1.Text) / Val(txtTal2.Text)
+                If Val(txtTal2.Text) = 0 Then
+                    MsgBox("Otillåten operation")
+                Else
+                    lblResult.Text = Val(txtTal1.Text) / Val(txtTal2.Text)
+                End If
             Case "%"
-                lblResult.Text = Val(txtTal1.Text) Mod Val(txtTal2.Text)
+                If Val(txtTal2.Text) = 0 Then
+                    MsgBox("Otillåten operation")
+                Else
+                    lblResult.Text = Val(txtTal1.Text) Mod Val(txtTal2.Text)
+                End If
         End Select
 
     End Sub
