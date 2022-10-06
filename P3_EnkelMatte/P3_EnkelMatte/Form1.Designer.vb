@@ -64,7 +64,7 @@ Partial Class Form1
         'cboRaknesatt
         '
         Me.cboRaknesatt.FormattingEnabled = True
-        Me.cboRaknesatt.Items.AddRange(New Object() {"+", "-", "*", "/"})
+        Me.cboRaknesatt.Items.AddRange(New Object() {"+", "-", "*", "/", "%"})
         Me.cboRaknesatt.Location = New System.Drawing.Point(183, 37)
         Me.cboRaknesatt.Name = "cboRaknesatt"
         Me.cboRaknesatt.Size = New System.Drawing.Size(118, 28)
