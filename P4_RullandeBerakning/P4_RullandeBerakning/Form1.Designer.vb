@@ -31,6 +31,7 @@ Partial Class Form1
         Me.lstTal = New System.Windows.Forms.ListBox()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnBorjaOm = New System.Windows.Forms.Button()
+        Me.btnTaBort = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'txtTal
@@ -89,8 +90,9 @@ Partial Class Form1
         '
         Me.lstTal.FormattingEnabled = True
         Me.lstTal.ItemHeight = 20
-        Me.lstTal.Location = New System.Drawing.Point(382, 23)
+        Me.lstTal.Location = New System.Drawing.Point(386, 23)
         Me.lstTal.Name = "lstTal"
+        Me.lstTal.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
         Me.lstTal.Size = New System.Drawing.Size(123, 184)
         Me.lstTal.TabIndex = 6
         '
@@ -112,12 +114,23 @@ Partial Class Form1
         Me.btnBorjaOm.Text = "Börja om"
         Me.btnBorjaOm.UseVisualStyleBackColor = True
         '
+        'btnTaBort
+        '
+        Me.btnTaBort.Enabled = False
+        Me.btnTaBort.Location = New System.Drawing.Point(441, 216)
+        Me.btnTaBort.Name = "btnTaBort"
+        Me.btnTaBort.Size = New System.Drawing.Size(68, 33)
+        Me.btnTaBort.TabIndex = 9
+        Me.btnTaBort.Text = "Ta bort"
+        Me.btnTaBort.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AcceptButton = Me.btnLaggTill
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(579, 277)
+        Me.Controls.Add(Me.btnTaBort)
         Me.Controls.Add(Me.btnBorjaOm)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.lstTal)
@@ -146,4 +159,5 @@ Partial Class Form1
     Friend WithEvents lstTal As ListBox
     Friend WithEvents btnExit As Button
     Friend WithEvents btnBorjaOm As Button
+    Friend WithEvents btnTaBort As Button
 End Class
