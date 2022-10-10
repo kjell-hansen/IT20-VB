@@ -29,6 +29,9 @@ Partial Class Form1
         Me.picTarning3 = New System.Windows.Forms.PictureBox()
         Me.btnSla = New System.Windows.Forms.Button()
         Me.imlTarningar = New System.Windows.Forms.ImageList(Me.components)
+        Me.timT1 = New System.Windows.Forms.Timer(Me.components)
+        Me.timT2 = New System.Windows.Forms.Timer(Me.components)
+        Me.timT3 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.picTarning1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picTarning2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picTarning3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -36,6 +39,7 @@ Partial Class Form1
         '
         'picTarning1
         '
+        Me.picTarning1.BackColor = System.Drawing.SystemColors.Control
         Me.picTarning1.Location = New System.Drawing.Point(95, 56)
         Me.picTarning1.Name = "picTarning1"
         Me.picTarning1.Size = New System.Drawing.Size(64, 64)
@@ -44,6 +48,7 @@ Partial Class Form1
         '
         'picTarning2
         '
+        Me.picTarning2.BackColor = System.Drawing.SystemColors.Control
         Me.picTarning2.Location = New System.Drawing.Point(200, 56)
         Me.picTarning2.Name = "picTarning2"
         Me.picTarning2.Size = New System.Drawing.Size(64, 64)
@@ -72,13 +77,22 @@ Partial Class Form1
         '
         Me.imlTarningar.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
         Me.imlTarningar.ImageStream = CType(resources.GetObject("imlTarningar.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.imlTarningar.TransparentColor = System.Drawing.Color.Transparent
+        Me.imlTarningar.TransparentColor = System.Drawing.Color.White
         Me.imlTarningar.Images.SetKeyName(0, "1.png")
         Me.imlTarningar.Images.SetKeyName(1, "2.png")
         Me.imlTarningar.Images.SetKeyName(2, "3.png")
         Me.imlTarningar.Images.SetKeyName(3, "4.png")
         Me.imlTarningar.Images.SetKeyName(4, "5.png")
         Me.imlTarningar.Images.SetKeyName(5, "6.png")
+        '
+        'timT1
+        '
+        '
+        'timT2
+        '
+        '
+        'timT3
+        '
         '
         'Form1
         '
@@ -108,4 +122,7 @@ Partial Class Form1
     Friend WithEvents picTarning3 As PictureBox
     Friend WithEvents btnSla As Button
     Friend WithEvents imlTarningar As ImageList
+    Friend WithEvents timT1 As Timer
+    Friend WithEvents timT2 As Timer
+    Friend WithEvents timT3 As Timer
 End Class
