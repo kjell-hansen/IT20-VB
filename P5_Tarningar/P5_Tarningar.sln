@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "P5_Tarningar", "P5_Tarningar\P5_Tarningar.vbproj", "{C3612C03-3F8F-41EC-9C3A-2999D78B3416}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3612C03-3F8F-41EC-9C3A-2999D78B3416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3612C03-3F8F-41EC-9C3A-2999D78B3416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3612C03-3F8F-41EC-9C3A-2999D78B3416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3612C03-3F8F-41EC-9C3A-2999D78B3416}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94FC7D5D-7894-4E6A-A182-20C63139E341}
+	EndGlobalSection
+EndGlobal
