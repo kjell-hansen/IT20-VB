@@ -1,7 +1,7 @@
 ﻿Public Class Form1
     ' Aktuell position för målet
     Private target As Point
-
+    Private tid As Single
     Private Sub txtVinkel_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtVinkel.KeyPress, txtHastighet.KeyPress
         ' Begränsa inmatningen till siffror och backspace
         If (e.KeyChar < "0"c OrElse e.KeyChar > "9"c) AndAlso e.KeyChar <> vbBack Then
@@ -54,7 +54,9 @@
 
             ' Kontrollera om projektilen träffar målet
             If Math.Abs(x - target.X) < 5 AndAlso Math.Abs(y - target.Y) < 5 Then
+                timTimer.Enabled = False
                 MsgBox("Träff!")
+                slutaSpelet()
                 Exit Do
             End If
         Loop While (x < picWorld.Width) ' Avbryt då bredden passerats
@@ -99,8 +101,15 @@
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Slumpa fram en postition för målet
         target = slumpaMal()
+
+        ' Kontrollera att textrutornas värden är ok
         aktiveraRita()
-        avaktiveraKontroller()
+
+        ' Avaktivera möjligheten att skriva in värden innan man börjat spelet
+        slutaSpelet()
+
+        ' Sätt färgen på färg-dialogrutan till samma som bakgrunden på textrutan
+        dlgColor.Color = txtColor.BackColor
     End Sub
 
     Private Sub Form1_Resize(sender As Object, e As EventArgs) Handles Me.Resize
@@ -115,6 +124,7 @@
     End Sub
 
     Private Sub aktiveraRita()
+        ' Kontrollerar om värdena i textrutorna är giltiga och avaktiverar rita-knappen om de inte är det
         If txtHastighet.BackColor = SystemColors.Window AndAlso txtVinkel.BackColor = SystemColors.Window Then
             btnRita.Enabled = True
         Else
@@ -133,14 +143,46 @@
     End Sub
 
     Private Sub txtColor_Click(sender As Object, e As EventArgs) Handles txtColor.Click
+        ' Välj färg på projektilen
         dlgColor.ShowDialog()
 
         txtColor.BackColor = dlgColor.Color
     End Sub
 
-    Private Sub avaktiveraKontroller()
+    Private Sub slutaSpelet()
+        ' Avaktiverar kontroller som inte ska vara tillgängliga förrän spelet börjar
         txtHastighet.Enabled = False
         txtVinkel.Enabled = False
         btnRita.Enabled = False
+        btnBorja.Enabled = True
+    End Sub
+    Private Sub borjaSpela()
+        ' Aktiverar kontroller och startar timern
+        txtHastighet.Enabled = True
+        txtVinkel.Enabled = True
+        btnRita.Enabled = True
+        btnBorja.Enabled = False
+        tid = 60000
+        timTimer.Start()
+    End Sub
+
+    Private Sub btnBorja_Click(sender As Object, e As EventArgs) Handles btnBorja.Click
+        borjaSpela()
+        txtVinkel.Focus()
+    End Sub
+
+    Private Sub timTimer_Tick(sender As Object, e As EventArgs) Handles timTimer.Tick
+        ' Räkna ner tiden och kontrollera om spelet ska fortgå
+        tid -= timTimer.Interval
+        If tid < 0 Then
+            tid = 0
+            lblTid.Text = ""
+            timTimer.Enabled = False
+            slutaSpelet()
+            MsgBox("Du förlorade")
+        Else
+            lblTid.Text = tid / 1000
+        End If
+
     End Sub
 End Class
