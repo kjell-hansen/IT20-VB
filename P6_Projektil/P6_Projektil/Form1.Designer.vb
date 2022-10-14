@@ -37,6 +37,10 @@ Partial Class Form1
         Me.timTimer = New System.Windows.Forms.Timer(Me.components)
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lblTid = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.lblPoang = New System.Windows.Forms.Label()
+        Me.timTraff = New System.Windows.Forms.Timer(Me.components)
         CType(Me.picWorld, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -141,7 +145,7 @@ Partial Class Form1
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(50, 343)
+        Me.Label4.Location = New System.Drawing.Point(12, 343)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(114, 20)
         Me.Label4.TabIndex = 7
@@ -150,11 +154,40 @@ Partial Class Form1
         'lblTid
         '
         Me.lblTid.AutoSize = True
-        Me.lblTid.Location = New System.Drawing.Point(52, 363)
+        Me.lblTid.Location = New System.Drawing.Point(37, 363)
         Me.lblTid.Name = "lblTid"
         Me.lblTid.Size = New System.Drawing.Size(25, 20)
         Me.lblTid.TabIndex = 8
         Me.lblTid.Text = "60"
+        Me.lblTid.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(68, 363)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(30, 20)
+        Me.Label5.TabIndex = 9
+        Me.Label5.Text = "sek"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(149, 343)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(53, 20)
+        Me.Label6.TabIndex = 7
+        Me.Label6.Text = "Poäng:"
+        '
+        'lblPoang
+        '
+        Me.lblPoang.AutoSize = True
+        Me.lblPoang.Location = New System.Drawing.Point(159, 363)
+        Me.lblPoang.Name = "lblPoang"
+        Me.lblPoang.Size = New System.Drawing.Size(67, 20)
+        Me.lblPoang.TabIndex = 8
+        Me.lblPoang.Text = "lblPoang"
+        Me.lblPoang.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Form1
         '
@@ -163,7 +196,10 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnRensa
         Me.ClientSize = New System.Drawing.Size(800, 442)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.lblPoang)
         Me.Controls.Add(Me.lblTid)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtColor)
         Me.Controls.Add(Me.Label3)
@@ -200,4 +236,8 @@ Partial Class Form1
     Friend WithEvents timTimer As Timer
     Friend WithEvents Label4 As Label
     Friend WithEvents lblTid As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents lblPoang As Label
+    Friend WithEvents timTraff As Timer
 End Class

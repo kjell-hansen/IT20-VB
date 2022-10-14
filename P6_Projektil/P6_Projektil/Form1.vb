@@ -2,6 +2,7 @@
     ' Aktuell position för målet
     Private target As Point
     Private tid As Single
+    Private antalTraff As Integer
     Private Sub txtVinkel_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtVinkel.KeyPress, txtHastighet.KeyPress
         ' Begränsa inmatningen till siffror och backspace
         If (e.KeyChar < "0"c OrElse e.KeyChar > "9"c) AndAlso e.KeyChar <> vbBack Then
@@ -54,16 +55,14 @@
 
             ' Kontrollera om projektilen träffar målet
             If Math.Abs(x - target.X) < 5 AndAlso Math.Abs(y - target.Y) < 5 Then
-                timTimer.Enabled = False
-                MsgBox("Träff!")
-                slutaSpelet()
+                traff()
                 Exit Do
             End If
         Loop While (x < picWorld.Width) ' Avbryt då bredden passerats
 
         ' Återställ knappar och pekare
-        btnRensa.Enabled = True
-        btnRita.Enabled = True
+        btnRensa.Enabled = timTimer.Enabled
+        btnRita.Enabled = timTimer.Enabled
         Cursor = oldCursor
     End Sub
 
@@ -162,6 +161,7 @@
         txtVinkel.Enabled = True
         btnRita.Enabled = True
         btnBorja.Enabled = False
+        antalTraff = 0
         tid = 60000
         timTimer.Start()
     End Sub
@@ -179,10 +179,44 @@
             lblTid.Text = ""
             timTimer.Enabled = False
             slutaSpelet()
-            MsgBox("Du förlorade")
+            MsgBox("Du fick " + antalTraff.ToString + " träffar!")
         Else
             lblTid.Text = tid / 1000
+            lblPoang.Text = antalTraff
         End If
+
+    End Sub
+
+    Private Sub traff()
+        antalTraff += 1
+        target = slumpaMal()
+        picWorld.BackColor = Color.Red
+        picWorld.CreateGraphics.Clear(SystemColors.Window)
+        timTraff.Start()
+    End Sub
+
+    Private Sub timTraff_Tick(sender As Object, e As EventArgs) Handles timTraff.Tick
+        Dim color As Color = picWorld.BackColor
+        Dim a, r, g, b As Byte
+
+
+        If color = SystemColors.Window Then
+            timTraff.Enabled = False
+            Exit Sub
+        ElseIf color = color.Red Then
+            a = color.A + (SystemColors.Window.A - color.A) / 2
+            r = color.R + (SystemColors.Window.R - color.R) / 2
+            g = color.G + (SystemColors.Window.G - color.G) / 2
+            b = color.B + (SystemColors.Window.B - color.B) / 2
+        Else
+            a = color.A + (SystemColors.Window.A - color.A) / 10
+            r = color.R + (SystemColors.Window.R - color.R) / 10
+            g = color.G + (SystemColors.Window.G - color.G) / 10
+            b = color.B + (SystemColors.Window.B - color.B) / 10
+        End If
+        picWorld.BackColor = Color.FromArgb(a, r, g, b)
+        Application.DoEvents()
+        ritaMal()
 
     End Sub
 End Class
