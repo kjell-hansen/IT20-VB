@@ -9,4 +9,5 @@ Varje projekt ligger i en egen förgrening.
 * P2_GissaTalet - Enkel gissa vilket tal jag tänker på med lite förbättringar
 * P3_EnkelMatte - En enkel räknare för +, -, *, /
 * P4_RullandeBeräkning - Beräkning av medel och summan av tal som läggs till  och tas bort i en listruta
-* P5_Tärningar - Tre tärningar som rullar och stannar oberoende av varandra
+* P5_Tärningar - Projekt för att animera tre tärningar
+* P6_Projektil - Enkelt spel där det gäller att träffa så många mål med en projektil som möjligt på en minut
