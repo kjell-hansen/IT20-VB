@@ -33,11 +33,12 @@ Partial Class frmAdresser
         Me.txtPostnr = New System.Windows.Forms.TextBox()
         Me.txtOrt = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnForsta = New System.Windows.Forms.Button()
-        Me.btnForegaende = New System.Windows.Forms.Button()
-        Me.btnNasta = New System.Windows.Forms.Button()
-        Me.btnSista = New System.Windows.Forms.Button()
         Me.txtPost = New System.Windows.Forms.TextBox()
+        Me.btnSista = New System.Windows.Forms.Button()
+        Me.btnNasta = New System.Windows.Forms.Button()
+        Me.btnForegaende = New System.Windows.Forms.Button()
+        Me.btnForsta = New System.Windows.Forms.Button()
+        Me.btnSpara = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -134,32 +135,13 @@ Partial Class frmAdresser
         Me.Panel1.Size = New System.Drawing.Size(535, 55)
         Me.Panel1.TabIndex = 10
         '
-        'btnForsta
+        'txtPost
         '
-        Me.btnForsta.Location = New System.Drawing.Point(12, 8)
-        Me.btnForsta.Name = "btnForsta"
-        Me.btnForsta.Size = New System.Drawing.Size(68, 35)
-        Me.btnForsta.TabIndex = 0
-        Me.btnForsta.Text = "<<"
-        Me.btnForsta.UseVisualStyleBackColor = True
-        '
-        'btnForegaende
-        '
-        Me.btnForegaende.Location = New System.Drawing.Point(86, 8)
-        Me.btnForegaende.Name = "btnForegaende"
-        Me.btnForegaende.Size = New System.Drawing.Size(68, 35)
-        Me.btnForegaende.TabIndex = 0
-        Me.btnForegaende.Text = "<"
-        Me.btnForegaende.UseVisualStyleBackColor = True
-        '
-        'btnNasta
-        '
-        Me.btnNasta.Location = New System.Drawing.Point(209, 8)
-        Me.btnNasta.Name = "btnNasta"
-        Me.btnNasta.Size = New System.Drawing.Size(68, 35)
-        Me.btnNasta.TabIndex = 0
-        Me.btnNasta.Text = ">"
-        Me.btnNasta.UseVisualStyleBackColor = True
+        Me.txtPost.Location = New System.Drawing.Point(158, 10)
+        Me.txtPost.Name = "txtPost"
+        Me.txtPost.Size = New System.Drawing.Size(46, 27)
+        Me.txtPost.TabIndex = 1
+        Me.txtPost.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'btnSista
         '
@@ -170,19 +152,48 @@ Partial Class frmAdresser
         Me.btnSista.Text = ">>"
         Me.btnSista.UseVisualStyleBackColor = True
         '
-        'txtPost
+        'btnNasta
         '
-        Me.txtPost.Location = New System.Drawing.Point(158, 10)
-        Me.txtPost.Name = "txtPost"
-        Me.txtPost.Size = New System.Drawing.Size(46, 27)
-        Me.txtPost.TabIndex = 1
-        Me.txtPost.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.btnNasta.Location = New System.Drawing.Point(209, 8)
+        Me.btnNasta.Name = "btnNasta"
+        Me.btnNasta.Size = New System.Drawing.Size(68, 35)
+        Me.btnNasta.TabIndex = 0
+        Me.btnNasta.Text = ">"
+        Me.btnNasta.UseVisualStyleBackColor = True
+        '
+        'btnForegaende
+        '
+        Me.btnForegaende.Location = New System.Drawing.Point(86, 8)
+        Me.btnForegaende.Name = "btnForegaende"
+        Me.btnForegaende.Size = New System.Drawing.Size(68, 35)
+        Me.btnForegaende.TabIndex = 0
+        Me.btnForegaende.Text = "<"
+        Me.btnForegaende.UseVisualStyleBackColor = True
+        '
+        'btnForsta
+        '
+        Me.btnForsta.Location = New System.Drawing.Point(12, 8)
+        Me.btnForsta.Name = "btnForsta"
+        Me.btnForsta.Size = New System.Drawing.Size(68, 35)
+        Me.btnForsta.TabIndex = 0
+        Me.btnForsta.Text = "<<"
+        Me.btnForsta.UseVisualStyleBackColor = True
+        '
+        'btnSpara
+        '
+        Me.btnSpara.Location = New System.Drawing.Point(417, 44)
+        Me.btnSpara.Name = "btnSpara"
+        Me.btnSpara.Size = New System.Drawing.Size(68, 33)
+        Me.btnSpara.TabIndex = 11
+        Me.btnSpara.Text = "Spara"
+        Me.btnSpara.UseVisualStyleBackColor = True
         '
         'frmAdresser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(535, 367)
+        Me.Controls.Add(Me.btnSpara)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.txtOrt)
         Me.Controls.Add(Me.txtPostnr)
@@ -220,4 +231,5 @@ Partial Class frmAdresser
     Friend WithEvents btnSista As Button
     Friend WithEvents btnNasta As Button
     Friend WithEvents btnForegaende As Button
+    Friend WithEvents btnSpara As Button
 End Class
