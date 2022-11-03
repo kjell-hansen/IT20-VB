@@ -102,70 +102,43 @@ Public Class frmAdresser
 
     Private Sub btnSpara_Click(sender As Object, e As EventArgs) Handles btnSpara.Click
         sparaPost()
-        Exit Sub
-
-        Dim commandBuilder As New OleDb.OleDbCommandBuilder(daAdresser)
-        Dim dbRow As DataRow
-
-        ' Skapa en ny datarow om det är fråga om en ny post
-        If txtPost.Text = "*" Then
-            dbRow = dsAdresser.Tables("Adressbok").NewRow
-        Else
-            ' Tilldela den gamla raden annars
-            dbRow = dsAdresser.Tables("Adressbok").Rows(Val(txtPost.Text))
-        End If
-
-        ' Sätt databasfälten baserat på textrutorna
-        dbRow.Item("Fornamn") = txtFornamn.Text
-        dbRow.Item("Efternamn") = txtEfternamn.Text
-        dbRow.Item("Adress") = txtAdress.Text
-        dbRow.Item("Postnr") = txtPostnr.Text
-        dbRow.Item("Ort") = txtOrt.Text
-
-        If txtPost.Text = "*" Then
-            dsAdresser.Tables("Adressbok").Rows.Add(dbRow)
-            txtPost.Text = dsAdresser.Tables("Adressbok").Rows.Count - 1
-            antalPoster = dsAdresser.Tables("Adressbok").Rows.Count
-            aktiveraKnappar(txtPost.Text)
-        End If
-
-        daAdresser.Update(dsAdresser, "Adressbok")
-        fyllFormular(txtPost.Text)
-
     End Sub
     Private Sub sparaPost()
         Dim commandBuilder As New OleDb.OleDbCommandBuilder(daAdresser)
         Dim dbRow As DataRow
+        Dim postnr As Integer
 
         ' Skapa en ny datarow om det är fråga om en ny post
         If txtPost.Text = "*" Then
             dbRow = dsAdresser.Tables("Adressbok").NewRow
-            ' Sätt databasfälten baserat på textrutorna
-            dbRow.Item("Fornamn") = txtFornamn.Text
-            dbRow.Item("Efternamn") = txtEfternamn.Text
-            dbRow.Item("Adress") = txtAdress.Text
-            dbRow.Item("Postnr") = txtPostnr.Text
-            dbRow.Item("Ort") = txtOrt.Text
+            ' Sätt databasfälten
+            dbRow = tilldelaDatabaspost(dbRow)
 
             dsAdresser.Tables("Adressbok").Rows.Add(dbRow)
-            txtPost.Text = dsAdresser.Tables("Adressbok").Rows.Count - 1
+            postnr = dsAdresser.Tables("Adressbok").Rows.Count - 1
             antalPoster = dsAdresser.Tables("Adressbok").Rows.Count
-            fyllFormular(txtPost.Text)
         Else
             ' Tilldela den gamla raden annars
             dbRow = dsAdresser.Tables("Adressbok").Rows(Val(txtPost.Text))
-            ' Sätt databasfälten baserat på textrutorna
-            dbRow.Item("Fornamn") = txtFornamn.Text
-            dbRow.Item("Efternamn") = txtEfternamn.Text
-            dbRow.Item("Adress") = txtAdress.Text
-            dbRow.Item("Postnr") = txtPostnr.Text
-            dbRow.Item("Ort") = txtOrt.Text
+            ' Sätt databasfälten
+            dbRow = tilldelaDatabaspost(dbRow)
+            postnr = txtPost.Text
         End If
 
         daAdresser.Update(dsAdresser, "Adressbok")
-        fyllFormular(txtPost.Text)
+        fyllFormular(postnr)
 
     End Sub
+    Private Function tilldelaDatabaspost(row As DataRow) As DataRow
+        ' Sätt databasfälten baserat på textrutorna
+        row.Item("Fornamn") = txtFornamn.Text
+        row.Item("Efternamn") = txtEfternamn.Text
+        row.Item("Adress") = txtAdress.Text
+        row.Item("Postnr") = txtPostnr.Text
+        row.Item("Ort") = txtOrt.Text
+
+        Return row
+    End Function
     Private Sub btnNyPost_Click(sender As Object, e As EventArgs) Handles btnNyPost.Click
         ' Spara undan senaste postnummer för användning i Ångra-knappen
         btnAngra.Tag = txtPost.Text
