@@ -11,3 +11,4 @@ Varje projekt ligger i en egen förgrening.
 * P4_RullandeBeräkning - Beräkning av medel och summan av tal som läggs till  och tas bort i en listruta
 * P5_Tärningar - Projekt för att animera tre tärningar
 * P6_Projektil - Enkelt spel där det gäller att träffa så många mål med en projektil som möjligt på en minut
+* P7_Adressregister - En liten applikation för att koppla visual basic mot en Acccess-databas

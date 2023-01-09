@@ -24,9 +24,10 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.tvwArtister = New System.Windows.Forms.TreeView()
         Me.pnlKnappar = New System.Windows.Forms.Panel()
-        Me.grdDetalj = New System.Windows.Forms.DataGridView()
+        Me.btnNyArtist = New System.Windows.Forms.Button()
         Me.lblNodTag = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.grdDetalj = New System.Windows.Forms.DataGridView()
         Me.pnlKnappar.SuspendLayout()
         CType(Me.grdDetalj, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -41,6 +42,7 @@ Partial Class Form1
         '
         'pnlKnappar
         '
+        Me.pnlKnappar.Controls.Add(Me.btnNyArtist)
         Me.pnlKnappar.Controls.Add(Me.lblNodTag)
         Me.pnlKnappar.Controls.Add(Me.Label1)
         Me.pnlKnappar.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -49,16 +51,14 @@ Partial Class Form1
         Me.pnlKnappar.Size = New System.Drawing.Size(576, 67)
         Me.pnlKnappar.TabIndex = 3
         '
-        'grdDetalj
+        'btnNyArtist
         '
-        Me.grdDetalj.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdDetalj.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grdDetalj.Location = New System.Drawing.Point(224, 0)
-        Me.grdDetalj.Name = "grdDetalj"
-        Me.grdDetalj.RowHeadersWidth = 51
-        Me.grdDetalj.RowTemplate.Height = 29
-        Me.grdDetalj.Size = New System.Drawing.Size(576, 383)
-        Me.grdDetalj.TabIndex = 4
+        Me.btnNyArtist.Location = New System.Drawing.Point(25, 14)
+        Me.btnNyArtist.Name = "btnNyArtist"
+        Me.btnNyArtist.Size = New System.Drawing.Size(92, 38)
+        Me.btnNyArtist.TabIndex = 5
+        Me.btnNyArtist.Text = "Ny artist"
+        Me.btnNyArtist.UseVisualStyleBackColor = True
         '
         'lblNodTag
         '
@@ -77,6 +77,17 @@ Partial Class Form1
         Me.Label1.Size = New System.Drawing.Size(89, 20)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Nodens tag:"
+        '
+        'grdDetalj
+        '
+        Me.grdDetalj.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdDetalj.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grdDetalj.Location = New System.Drawing.Point(224, 0)
+        Me.grdDetalj.Name = "grdDetalj"
+        Me.grdDetalj.RowHeadersWidth = 51
+        Me.grdDetalj.RowTemplate.Height = 29
+        Me.grdDetalj.Size = New System.Drawing.Size(576, 383)
+        Me.grdDetalj.TabIndex = 4
         '
         'Form1
         '
@@ -100,4 +111,5 @@ Partial Class Form1
     Friend WithEvents lblNodTag As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents grdDetalj As DataGridView
+    Friend WithEvents btnNyArtist As Button
 End Class
