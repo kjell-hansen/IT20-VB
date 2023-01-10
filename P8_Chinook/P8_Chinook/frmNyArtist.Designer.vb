@@ -68,12 +68,14 @@ Partial Class frmNyArtist
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnAngra
-        Me.ClientSize = New System.Drawing.Size(378, 187)
+        Me.ClientSize = New System.Drawing.Size(377, 187)
         Me.Controls.Add(Me.btnAngra)
         Me.Controls.Add(Me.btnSpara)
         Me.Controls.Add(Me.txtArtist)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "frmNyArtist"
         Me.Text = "Ny artist"
         Me.ResumeLayout(False)

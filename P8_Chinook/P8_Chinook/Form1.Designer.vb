@@ -24,6 +24,8 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.tvwArtister = New System.Windows.Forms.TreeView()
         Me.pnlKnappar = New System.Windows.Forms.Panel()
+        Me.btnNyLat = New System.Windows.Forms.Button()
+        Me.btnNyttAlbum = New System.Windows.Forms.Button()
         Me.btnNyArtist = New System.Windows.Forms.Button()
         Me.lblNodTag = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -42,6 +44,8 @@ Partial Class Form1
         '
         'pnlKnappar
         '
+        Me.pnlKnappar.Controls.Add(Me.btnNyLat)
+        Me.pnlKnappar.Controls.Add(Me.btnNyttAlbum)
         Me.pnlKnappar.Controls.Add(Me.btnNyArtist)
         Me.pnlKnappar.Controls.Add(Me.lblNodTag)
         Me.pnlKnappar.Controls.Add(Me.Label1)
@@ -50,6 +54,25 @@ Partial Class Form1
         Me.pnlKnappar.Name = "pnlKnappar"
         Me.pnlKnappar.Size = New System.Drawing.Size(576, 67)
         Me.pnlKnappar.TabIndex = 3
+        '
+        'btnNyLat
+        '
+        Me.btnNyLat.Enabled = False
+        Me.btnNyLat.Location = New System.Drawing.Point(270, 16)
+        Me.btnNyLat.Name = "btnNyLat"
+        Me.btnNyLat.Size = New System.Drawing.Size(94, 36)
+        Me.btnNyLat.TabIndex = 7
+        Me.btnNyLat.Text = "Lägg till låt"
+        Me.btnNyLat.UseVisualStyleBackColor = True
+        '
+        'btnNyttAlbum
+        '
+        Me.btnNyttAlbum.Location = New System.Drawing.Point(143, 16)
+        Me.btnNyttAlbum.Name = "btnNyttAlbum"
+        Me.btnNyttAlbum.Size = New System.Drawing.Size(100, 36)
+        Me.btnNyttAlbum.TabIndex = 6
+        Me.btnNyttAlbum.Text = "Nytt album"
+        Me.btnNyttAlbum.UseVisualStyleBackColor = True
         '
         'btnNyArtist
         '
@@ -112,4 +135,6 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents grdDetalj As DataGridView
     Friend WithEvents btnNyArtist As Button
+    Friend WithEvents btnNyttAlbum As Button
+    Friend WithEvents btnNyLat As Button
 End Class
