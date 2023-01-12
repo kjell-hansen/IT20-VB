@@ -26,6 +26,8 @@ Partial Class frmNyArtist
         Me.txtArtist = New System.Windows.Forms.TextBox()
         Me.btnSpara = New System.Windows.Forms.Button()
         Me.btnAngra = New System.Windows.Forms.Button()
+        Me.lblArtistid = New System.Windows.Forms.Label()
+        Me.btnRadera = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -46,7 +48,7 @@ Partial Class frmNyArtist
         '
         'btnSpara
         '
-        Me.btnSpara.Location = New System.Drawing.Point(79, 127)
+        Me.btnSpara.Location = New System.Drawing.Point(123, 129)
         Me.btnSpara.Name = "btnSpara"
         Me.btnSpara.Size = New System.Drawing.Size(90, 34)
         Me.btnSpara.TabIndex = 2
@@ -55,12 +57,30 @@ Partial Class frmNyArtist
         '
         'btnAngra
         '
-        Me.btnAngra.Location = New System.Drawing.Point(201, 130)
+        Me.btnAngra.Location = New System.Drawing.Point(237, 132)
         Me.btnAngra.Name = "btnAngra"
         Me.btnAngra.Size = New System.Drawing.Size(94, 29)
         Me.btnAngra.TabIndex = 3
         Me.btnAngra.Text = "Ångra"
         Me.btnAngra.UseVisualStyleBackColor = True
+        '
+        'lblArtistid
+        '
+        Me.lblArtistid.AutoSize = True
+        Me.lblArtistid.Location = New System.Drawing.Point(132, 9)
+        Me.lblArtistid.Name = "lblArtistid"
+        Me.lblArtistid.Size = New System.Drawing.Size(61, 20)
+        Me.lblArtistid.TabIndex = 4
+        Me.lblArtistid.Text = "lblArtist"
+        '
+        'btnRadera
+        '
+        Me.btnRadera.Location = New System.Drawing.Point(12, 128)
+        Me.btnRadera.Name = "btnRadera"
+        Me.btnRadera.Size = New System.Drawing.Size(88, 33)
+        Me.btnRadera.TabIndex = 5
+        Me.btnRadera.Text = "Radera"
+        Me.btnRadera.UseVisualStyleBackColor = True
         '
         'frmNyArtist
         '
@@ -69,6 +89,8 @@ Partial Class frmNyArtist
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnAngra
         Me.ClientSize = New System.Drawing.Size(377, 187)
+        Me.Controls.Add(Me.btnRadera)
+        Me.Controls.Add(Me.lblArtistid)
         Me.Controls.Add(Me.btnAngra)
         Me.Controls.Add(Me.btnSpara)
         Me.Controls.Add(Me.txtArtist)
@@ -87,4 +109,6 @@ Partial Class frmNyArtist
     Friend WithEvents txtArtist As TextBox
     Friend WithEvents btnSpara As Button
     Friend WithEvents btnAngra As Button
+    Friend WithEvents lblArtistid As Label
+    Friend WithEvents btnRadera As Button
 End Class

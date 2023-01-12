@@ -1,5 +1,8 @@
 ﻿Public Class frmNyLat
+    Public albumId As Integer = -1
     Private Sub frmNyLat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        lblAlbum.Text = albumId
+
         ' Töm textboxar
         txtNamn.Text = ""
         txtKompositor.Text = ""
@@ -49,6 +52,37 @@
     End Sub
 
     Private Sub btnSpara_Click(sender As Object, e As EventArgs) Handles btnSpara.Click
+        ' Skapa dataadapter för koppling mot tabellen
+        Dim dataadapter As New SQLite.SQLiteDataAdapter("select * from tracks", cnChinook)
+
+        ' Skapa en commandbuilder 
+        Dim commBuilder As New SQLite.SQLiteCommandBuilder(dataadapter)
+
+        ' Skapa datarad och dataset för att tillfälligt lagra informationen
+        Dim dbRow As DataRow
+        Dim ds As New DataSet
+
+        ' Fyll datasettet
+        dataadapter.Fill(ds, "Låtar")
+
+        ' Skapa ny rad och fyll den med data från formuläret
+        dbRow = ds.Tables("Låtar").NewRow
+        dbRow.Item("Name") = txtNamn.Text
+        dbRow.Item("Albumid") = lblAlbum.Text
+        dbRow.Item("MediatypeId") = cboMediatyp.SelectedValue
+        dbRow.Item("Genreid") = cboGenre.SelectedValue
+        dbRow.Item("Composer") = txtKompositor.Text
+        dbRow.Item("Milliseconds") = CInt(txtLangd.Text)
+        dbRow.Item("Bytes") = CInt(txtStorlek.Text)
+        dbRow.Item("Unitprice") = Val(txtPris.Text)
+
+        ' Lägg till dataraden i datasettet
+        ds.Tables("Låtar").Rows.Add(dbRow)
+
+        'Uppdatera dataadaptern
+        dataadapter.Update(ds, "Låtar")
+
+        ' Returnera OK!
         DialogResult = DialogResult.OK
     End Sub
 

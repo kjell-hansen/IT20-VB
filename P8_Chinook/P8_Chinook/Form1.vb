@@ -45,11 +45,13 @@
             showDataGrid("SELECT * FROM albums where " & e.Node.Tag)
             ' Förhindra att man kan lägga till låt
             btnNyLat.Enabled = False
+            btnRedigeraArtist.Enabled = True
         Else
             ' Albumnod, visa alla låtar
             showDataGrid("SELECT * FROM tracks where " & e.Node.Tag)
             ' Tillåt att man kan lägga tll låt
             btnNyLat.Enabled = True
+            btnRedigeraArtist.Enabled = False
         End If
     End Sub
 
@@ -85,8 +87,25 @@
     End Sub
 
     Private Sub btnNyLat_Click(sender As Object, e As EventArgs) Handles btnNyLat.Click
+        ' Den valda nodens tag har formatet "Albumid=XXX" dvs albumid-talet börjar i 
+        ' position 8
+        Dim albumID As Integer = tvwArtister.SelectedNode.Tag.ToString.Substring(8)
+        frmNyLat.albumId = albumID
         If frmNyLat.ShowDialog() = DialogResult.OK Then
-            MsgBox("OK")
+            showDataGrid("SELECT * FROM tracks where " & tvwArtister.SelectedNode.Tag)
         End If
     End Sub
+
+    Private Sub btnRedigeraArtist_Click(sender As Object, e As EventArgs) Handles btnRedigeraArtist.Click
+        ' Noden innehåller uppgift om artistens id enligt
+        ' Artistid=xxx , dvs artistid börjar i position 9
+        Dim artistId As Integer = tvwArtister.SelectedNode.Tag.ToString.Substring(9)
+        frmNyArtist.artistid = artistId
+        If frmNyArtist.ShowDialog() = DialogResult.OK Then
+            ' Ladda om trädvyn
+            reloadTree()
+        End If
+
+    End Sub
+
 End Class

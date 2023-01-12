@@ -24,6 +24,7 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.tvwArtister = New System.Windows.Forms.TreeView()
         Me.pnlKnappar = New System.Windows.Forms.Panel()
+        Me.btnRedigeraArtist = New System.Windows.Forms.Button()
         Me.btnNyLat = New System.Windows.Forms.Button()
         Me.btnNyttAlbum = New System.Windows.Forms.Button()
         Me.btnNyArtist = New System.Windows.Forms.Button()
@@ -39,21 +40,31 @@ Partial Class Form1
         Me.tvwArtister.Dock = System.Windows.Forms.DockStyle.Left
         Me.tvwArtister.Location = New System.Drawing.Point(0, 0)
         Me.tvwArtister.Name = "tvwArtister"
-        Me.tvwArtister.Size = New System.Drawing.Size(224, 450)
+        Me.tvwArtister.Size = New System.Drawing.Size(224, 474)
         Me.tvwArtister.TabIndex = 0
         '
         'pnlKnappar
         '
+        Me.pnlKnappar.Controls.Add(Me.btnRedigeraArtist)
         Me.pnlKnappar.Controls.Add(Me.btnNyLat)
         Me.pnlKnappar.Controls.Add(Me.btnNyttAlbum)
         Me.pnlKnappar.Controls.Add(Me.btnNyArtist)
         Me.pnlKnappar.Controls.Add(Me.lblNodTag)
         Me.pnlKnappar.Controls.Add(Me.Label1)
         Me.pnlKnappar.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnlKnappar.Location = New System.Drawing.Point(224, 383)
+        Me.pnlKnappar.Location = New System.Drawing.Point(224, 361)
         Me.pnlKnappar.Name = "pnlKnappar"
-        Me.pnlKnappar.Size = New System.Drawing.Size(576, 67)
+        Me.pnlKnappar.Size = New System.Drawing.Size(639, 113)
         Me.pnlKnappar.TabIndex = 3
+        '
+        'btnRedigeraArtist
+        '
+        Me.btnRedigeraArtist.Location = New System.Drawing.Point(22, 67)
+        Me.btnRedigeraArtist.Name = "btnRedigeraArtist"
+        Me.btnRedigeraArtist.Size = New System.Drawing.Size(95, 34)
+        Me.btnRedigeraArtist.TabIndex = 8
+        Me.btnRedigeraArtist.Text = "Ändra artist"
+        Me.btnRedigeraArtist.UseVisualStyleBackColor = True
         '
         'btnNyLat
         '
@@ -109,14 +120,14 @@ Partial Class Form1
         Me.grdDetalj.Name = "grdDetalj"
         Me.grdDetalj.RowHeadersWidth = 51
         Me.grdDetalj.RowTemplate.Height = 29
-        Me.grdDetalj.Size = New System.Drawing.Size(576, 383)
+        Me.grdDetalj.Size = New System.Drawing.Size(639, 361)
         Me.grdDetalj.TabIndex = 4
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(863, 474)
         Me.Controls.Add(Me.grdDetalj)
         Me.Controls.Add(Me.pnlKnappar)
         Me.Controls.Add(Me.tvwArtister)
@@ -137,4 +148,5 @@ Partial Class Form1
     Friend WithEvents btnNyArtist As Button
     Friend WithEvents btnNyttAlbum As Button
     Friend WithEvents btnNyLat As Button
+    Friend WithEvents btnRedigeraArtist As Button
 End Class
